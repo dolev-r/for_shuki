@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
 import { Collapse, Switch, Card, Popover } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+
 
 const { Panel } = Collapse;
 
@@ -24,13 +24,12 @@ const { Meta } = Card;
 
 export class ScheduledCommand extends React.Component {
   state = {
-    loading: true,
+    loading: false,
   };
 
   onChange = checked => {
     this.setState({ loading: !checked });
   };
-
 
 
   render() {
@@ -40,19 +39,19 @@ export class ScheduledCommand extends React.Component {
       <div>
         <Switch checked={!loading} onChange={this.onChange} />
 
-          <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
-            <Meta
-              title="Card title"
-              description="This is the description"
-            />
-            
-            <Collapse accordion>
-              <Panel header="This is panel header 1" key="1">
+        <Card style={{ width: 300, marginRight: 100, marginBottom: 100}} loading={loading}>
+          <Meta
+            title="Card title"
+            description="This is the description"
+          />
+          
+          <Collapse accordion>
+            <Panel header="This is panel header 1" key="1">
 
-              </Panel>
-            </Collapse>
+            </Panel>
+          </Collapse>
 
-          </Card>
+        </Card>
      
       </div>
     );
