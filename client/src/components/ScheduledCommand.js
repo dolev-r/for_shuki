@@ -27,18 +27,11 @@ export class ScheduledCommand extends React.Component {
     loading: false,
   };
 
-  onChange = checked => {
-    this.setState({ loading: !checked });
-  };
-
-
   render() {
     const { loading } = this.state;
 
     return (
       <div>
-        <Switch checked={!loading} onChange={this.onChange} />
-
         <Card style={{ width: 300, marginRight: 100, marginBottom: 100}} loading={loading}>
           <Meta
             title="Card title"

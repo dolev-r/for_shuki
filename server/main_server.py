@@ -5,17 +5,22 @@ from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 
+
+
 app = Flask(__name__)
 CORS(app)
 
 def allowed_file(filename):
 	return True
 
-@app.route('/testing')
+@app.route('/testing', methods=['POST'])
 def tester():
     print(request)
     return {"a": 3}
 
+@app.route('/api', methods=['POST'])
+def api():
+    return {"a": 3}
 
 @app.route('/upload_file')
 def upload_file():

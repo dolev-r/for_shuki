@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import '../index.css';
 import { Row, Collapse } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
 import { ScheduledCommand } from './ScheduledCommand'
 import { ProgressHolder } from './ProgressHolder'
+import { FileRepresentor } from './FileRepresentor'
 
 const { Panel } = Collapse;
 
@@ -16,16 +16,36 @@ export class ExcelFile extends React.Component
     render() {
         return (
             <div style={{marginTop: 50}}>
-                <ProgressHolder current_step={1}/>
+                <Row>
+                    <h1> 
+                        excel file name
+                    </h1>
+                    <p>
+                        excel file description
+                    </p>
+                </Row>
+                <ProgressHolder current_step={2}/>
 
                 <Collapse
                     bordered={false}
-                    defaultActiveKey={['1']}
+                    // defaultActiveKey={['1']} // should be opened initialy
                     expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-                    className="site-collapse-custom-collapse"
                     style={drop_down_style}>
 
-                    <Panel header="This is panel header 1" key="1" style={drop_down_style}>
+                    <Panel header="Files" key="1" style={drop_down_style}>
+                        <FileRepresentor/>
+                    </Panel>
+
+                </Collapse>
+
+
+                <Collapse
+                    bordered={false}
+                    // defaultActiveKey={['1']}
+                    expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+                    style={drop_down_style}>
+
+                    <Panel header="Commands" key="1" style={drop_down_style}>
                         <Row>
                             <ScheduledCommand/>
                             <ScheduledCommand/>
